@@ -2,6 +2,8 @@
 
 Postman documentation [here](https://documenter.getpostman.com/view/4045844/S1a1aU1e?version=latest)
 
+API hosted on [Heroku]( https://efa-book-api.herokuapp.com)
+
 ### To Run Locally
 
 1. Clone Project
