@@ -4,8 +4,6 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect : 'postgres'
 });
 
-
-const User = sequelize.import('./models/user');
 const Book = sequelize.import('./models/book');
 
 sequelize.authenticate()

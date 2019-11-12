@@ -1,8 +1,7 @@
 const Book = require('../db').model('Book');
 const router = require('express').Router();
-const validateSession = require('../middleware/validateSession');
 
-router.post('/', validateSession, (req, res) => {
+router.post('/', (req, res) => {
     let reqBook = req.body.book;
 
     Book.create({
@@ -17,13 +16,13 @@ router.post('/', validateSession, (req, res) => {
     .catch(err => res.status(500).json(err));
 });
 
-router.get('/', validateSession, (req, res) => {
+router.get('/', (req, res) => {
     Book.findAll({ where : { userId : req.user. id }})
         .then(books => res.status(200).json(books))
         .catch(err => res.status(500).json(err));
 });
 
-router.put('/:id', validateSession, (req, res) => {
+router.put('/:id', (req, res) => {
     let reqBook = req.body.book;
 
     Book.update({
@@ -43,10 +42,10 @@ router.put('/:id', validateSession, (req, res) => {
         .catch(err => res.status(500).json(err));
 });
 
-router.delete('/:id', validateSession, (req, res) => {
+router.delete('/:id', (req, res) => {
     Book.destroy({ where : {
         id : req.params.id,
-        userId : req.user.id        
+        userId : req.user.id
     }})
     .then(recordsChanged => res.status(200).json(`${recordsChanged} record(s) deleted.`))
     .catch(err => res.status(500).json(err));
