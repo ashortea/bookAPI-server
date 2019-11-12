@@ -13,6 +13,6 @@
     "sequelize": "^5.8.11"
   },
   "scripts": {
-    "start" : "node index.js"
+    "start": "node index.js"
   }
 }
